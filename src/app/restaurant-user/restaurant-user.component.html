@@ -1,0 +1,17 @@
+
+<body>
+
+<div class="row">
+    <!--75% of the grid will be allocated to this.-->
+    <div class="col-sm-9">
+        <restaurant-user-detail (updateRestaurantEvent)="onUpdateRestaurantEvent($event)" (deleteRestaurantEvent)="onDeleteRestaurantEvent($event)" *ngIf="selectedRestaurant && hidenewRestaurant" [restaurant]="selectedRestaurant"></restaurant-user-detail>
+    </div>
+
+    <!--Remaining 25% of the grid will be allocated to this.-->
+    <div class="col-sm-3">
+        <!-- specifying an input here and what is the input? Its the array that was declared in TypeScript.-->
+        <restaurant-user-list (SelectRestaurant)="onSelectRestaurant($event)" [restaurants]="restaurants"></restaurant-user-list>
+    </div>
+</div>
+
+</body>

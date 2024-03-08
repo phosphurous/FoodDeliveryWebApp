@@ -1,3 +1,55 @@
-<h1>
-  {{title}}
-</h1>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+ <!-- <div class="container"> -->
+ 
+<!-- Why did i update my angular? Because i got this error WARNING in ./~/@agm/core/services/maps-api-loader/lazy-maps-api-loader.js -->
+<!-- 24:38-52 "export 'InjectionToken' was not found in '@angular/core' -->
+
+<!-- ERROR in C:/Users/ASUS XAC/angular-apps/Assignment1PopupMaps/node_modules/@agm/core/services/maps-api-loader/lazy-maps-api-loader.d.ts (1,10): Module '"C:/Users/ASUS XAC/angular-apps/Assignment1PopupMaps/node_modules/@angular/core/index"' has no exported member 'InjectionToken'."  -->
+
+<!-- This is an error with Angular 2 and was fixed subsequently. But due to old ver, the error was still there.-->
+
+      <!-- <h1>Angular 2 + Google Maps Places Autocomplete</h1> -->
+	  
+	  <!-- here i will create a form to cater to the google maps-->
+      <!-- <div class="form-group"> -->
+        <!-- <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl"> -->
+      <!-- </div> -->
+
+ <!-- </div> -->
+	
+	
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <a routerLink="/home"><img id="header" src="./assets/logo.png"></a>
+                <ul id="menu" class="nav navbar-nav">
+                    <li><a routerLink="/home">Home</a></li>
+                    <li><a routerLink="/restaurantsUser">Restaurants</a></li>
+                    <li><a routerLink="/aboutus">About Us</a></li>
+                    <li><a routerLink="/addrest">Add Restaurant</a></li>
+					<button class="fa fa-shopping-cart test" routerLink="/cart"></button>
+
+                    <button type="button" class="btn" routerLink="/restaurants">AdminPanel </button>
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+<!-- routing here -->
+<router-outlet></router-outlet>
+
+<!--
+<footer id="footer">
+    <ul class="icons">
+        <li><a href="https://twitter.com" class="fa fa-twitter"></a></li>
+        <li><a href="https://www.facebook.com" class="fa fa-facebook"></a></li>
+        <li><a href="https://www.instagram.com" class="fa fa-instagram"></a></li>
+    </ul>
+    <ul class="copyright">
+        <li>&copy; KangMin</li>
+        <li>Design: <a href="">KangMin</a></li>
+    </ul>
+</footer>-->

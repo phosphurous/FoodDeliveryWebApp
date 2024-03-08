@@ -1,0 +1,49 @@
+body
+{
+	width:100%;
+}
+
+.headerRest
+{
+	text-align:center;
+	background-color: #505A5B;
+	color: white;
+	height: 3%;
+	margin-bottom: 10px;
+	font-family: Trebuchet MS;
+}
+
+.btnRest
+{
+	outline: none;
+}
+
+.pageMain
+{
+	width: 18%;
+	float: right;
+	padding: 2%;
+	background-color: #8F91A2;
+}
+
+.pageBtm
+{
+	width: 80%;
+	float: left;
+	padding: 2%;
+	background-color: #94B0DA;
+}
+
+.test {
+	width: 90%;
+	margin: 0 auto;
+}
+
+.row {
+	padding: 3%;
+}
+
+.buttons {
+	width: 18%;
+	float: right;
+}

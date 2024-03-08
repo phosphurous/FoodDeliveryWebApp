@@ -1,0 +1,17 @@
+.btnRtMenu
+{
+	text-decoration:none;
+}
+
+.btnCheckout
+{
+	text-decoration: none;
+	margin: auto;
+    padding: 10px;
+}
+
+#cartMessage
+{
+	font-size: 10px;
+	font-weight: bold;
+}

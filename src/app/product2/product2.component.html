@@ -1,0 +1,21 @@
+ <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
+
+<div style="text-align:center">
+  <h1>
+    {{title}}...
+  </h1>
+ </div>
+
+<div class="card" *ngFor = "let product2 of products2">
+	<div class="w3-panel w3-card-2">
+				<h3>{{product2.name}}</h3>
+				<span>{{product2.description}}</span>
+				<br />
+				<img id="foodImage" src={{product2.image}} height="100" width="130" />
+				<br /><br />
+				<span>{{product2.price | currency:'SGD'}}</span>
+				
+				<button class="btnCart" >+ Add to Cart</button>
+				
+	</div>	  
+</div>

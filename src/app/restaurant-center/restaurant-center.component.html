@@ -1,0 +1,78 @@
+<body>
+<div class="headerRest">
+    <h1>Welcome to the Admin Panel, {{currentUser.firstName}}!</h1>
+</div>
+
+<div class="test">
+<!-- Most functions will be here -->
+<div class="pageBtm">
+<div>
+    <h1>Restaurants List</h1>
+</div>
+
+<div class="row">
+    <!--75% of the grid will be allocated to this.-->
+    <div class="col-sm-9">
+	<div *ngIf="!hidenewRestaurant">
+        <h2>New Restaurant</h2>
+		<!-- ngModel is included so that the values within the input fields are accessible using this form reference-->
+		
+		<!-- the form.value is going to contain the value of all 3 input fields. -->
+        <form #form="ngForm" (ngSubmit)="onSubmitAddRestaurant(form.value)" class="well">
+            <div class="form-group">
+                <label>Name of the Restaurant</label>
+                <input type="text" class="form-control" required name="name" ngModel>
+            </div>
+			
+            <div class="form-group">
+                <label>Link of Restaurant only!</label>
+                <input type="text" class="form-control" required name="pic" ngModel>
+            </div>
+			
+            <div class="form-group">
+                <label>Description of Restaurant</label>
+                <input type="text" class="form-control" name="description" ngModel>
+            </div>
+			
+			<!-- when the save button is clicked, the (ngSubmit) event will be raised which will call the "onSubmit...." method.-->
+            <button type="submit" class="btn btn-success">Save</button>
+        </form>
+	</div>
+
+        <!-- Using property data binding, passing in a single video which is selected. But what happens when a user has not selected? *ngIF will come in when a condition is met. "If there is a selected restaurant only then the details will be displayed".-->
+		
+		<!--(updateRestaurantEvent) will another method which is onUpdateRestaurantEvent and pass in $event which will give us access to that particular restaurant-->
+		
+		<!-- When there is a deleteRestaurantEvent raised by the detail component, we are going to execute deleteRestaurantEvent passing in $event which gives us access to the video that is going to get deleted.-->
+        <restaurant-detail (updateRestaurantEvent)="onUpdateRestaurantEvent($event)" (deleteRestaurantEvent)="onDeleteRestaurantEvent($event)" *ngIf="selectedRestaurant && hidenewRestaurant" [restaurant]="selectedRestaurant"></restaurant-detail>
+    </div>
+
+    <!--Remaining 25% of the grid will be allocated to this.-->
+    <div class="col-sm-3">
+        <button (click)="newRestaurant()" style="margin-bottom:2px;" type="button" class="btn btn-success btn-block btnRest">+ New Restaurant</button>
+
+        <!-- specifying an input here and what is the input? Its the array that was declared in TypeScript.-->
+        <restaurant-list (SelectRestaurant)="onSelectRestaurant($event)" [restaurants]="restaurants"></restaurant-list>
+    </div>
+	
+	
+</div>
+
+</div>
+<div class="pageMain list-group">	
+    <h4>All registered users:</h4>
+    <ol>
+        <li *ngFor="let user of users">
+            {{user.username}} ({{user.firstName}} {{user.lastName}})
+			 - <button (click)="deleteUser(user.id)">Delete</button>
+        </li>
+    </ol>
+    
+</div>
+
+<div class="buttons list-group">
+<a class="list-group-item list-group-item-danger"[routerLink]="['/login']">Logout</a>
+<a class="list-group-item list-group-item-warning"[routerLink]="['/register']">Register</a>
+</div>
+</div>
+</body>

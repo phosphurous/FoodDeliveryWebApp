@@ -1,0 +1,33 @@
+/*iframe
+{
+	width: "500px";
+	height: "500px";
+	resize: both;
+	overflow: auto;
+}*/
+
+.test
+{
+	width: 500px;
+	height: 500px;
+	max-width:500px;
+	max-height:500px;
+	text-align: centre;
+	overflow: hidden;
+
+}
+
+.btnMenu a
+{
+	color:black;
+	text-decoration: none;
+
+}
+	.btnMenu:hover
+	{
+		background: #749EFF;
+	}
+	.btnMenu a:hover
+	{
+		text-decoration: none;		
+	}

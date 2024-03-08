@@ -1,0 +1,85 @@
+
+<div style="text-align:center">
+  <h3>
+    Enter your details to continue with checkout!
+  </h3>
+</div>
+
+<div>
+<p id="restInfo">  </p>
+</div>
+
+<div class="registration" *ngIf="showForm">
+<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <p><input type="text" formControlName="name" id="name" placeholder="Enter your name" required /></p>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+	<!--By doing '[a-zA-Z0-9][a-zA-Z0-9._]' I am forcing the first character to start with a letter/number-->
+      <p><input pattern="^[a-zA-Z0-9][a-zA-Z0-9._]+@[a-zA-Z]+\.[a-z]{2,10}$" title="Eg. abc@gmail.com" type="email" formControlName="email" 
+				id="email" placeholder="Enter your email" required /></p>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <p><input pattern="[89][0-9]{7}" title="Eg. 91234567/81234567" type="text" formControlName="phone" id="phone" placeholder="Enter your phone number" required /></p>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+	<!-- Match a single digit 0..9 \d{5}, Exactly 5 times {5} -->
+      <p><input pattern='^[S/s]\d{5}[0-9]$' title="Eg. S512345" type="text" formControlName="address" 
+				id="address" placeholder="Enter your delivery address" required /></p>
+    </div>
+  </div>
+
+	 <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <p><button class="btn btn-primary" (click)="start()" [disabled]="!myForm.valid">Confirm</button> </p>    
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <p><button class="btn btn-primary" type="reset">Clear</button> </p>    
+    </div>
+  </div>
+  
+ </div>
+</form>
+</div>
+
+<!-- <table border="1"> -->
+
+	<!-- <tr> -->
+		<!-- <th>Name </th> -->
+		<!-- <th>Price </th>		 -->
+		<!-- <th>Quantity </th> -->
+		<!-- <th>Sub Total </th> -->
+		
+	<!-- </tr> -->
+	
+	<!-- <tr *ngFor="let item of items"> -->
+		<!-- <td>{{item.product.name}}</td> -->
+		<!-- <td>{{item.product.description}}</td> -->
+		<!-- <td>{{item.product.price}}</td> -->
+		<!-- <td>{{item.quantity}}</td> -->
+		<!-- <td>{{total}}</td> -->
+	<!-- </tr> -->
+	
+<!-- </table> -->
+  
+  <div *ngIf="edited" class="alert alert-success box-msg" role="alert">
+        <strong>Checkout for food has been successful! Please prepare the cash in total amount.</strong>
+</div>
+
+
+
+

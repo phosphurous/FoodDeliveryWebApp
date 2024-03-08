@@ -1,0 +1,8 @@
+<!-- using bootstrap styling to display vertically-->
+<ul class="nav nav-pills nav-stacked" style="background-color:#CECECE;">
+	<!--displaying rest title using for -->
+	<!-- Binding click event, which will trigger the onselect method passing in the correct Restaurant details. -->
+	
+	<li (click)="onSelect(restaurant)" *ngFor="let restaurant of restaurants">
+	<a>{{restaurant.name}}</a></li>
+</ul> 

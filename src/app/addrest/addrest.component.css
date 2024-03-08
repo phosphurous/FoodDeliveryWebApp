@@ -1,0 +1,21 @@
+/*defining a height for the map. MUST. if not the map will not show */
+agm-map 
+{
+	height: 300px;
+}
+
+#restHeader
+{
+	text-align: center;
+	background-color: #9CADCE;
+	border-radius: 5px;
+	color: black;
+	height: 50px;
+	font-weight: bold;
+}
+
+#restInfo
+{
+	background-color: #B2F7EF;
+	text-align: center;
+}

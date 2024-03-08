@@ -1,0 +1,40 @@
+<h3> Cart Info </h3>
+
+<div>
+	<button class="btnRtMenu" routerLink="/product"> Back to menu </button>
+</div>
+
+<table border="1">
+
+	<tr>
+		<th>Options: </th>
+		<th>Name </th>
+		<th>Photo </th>
+		<th>Description </th>
+		<th>Price </th>		
+		<th>Quantity </th>
+		<th>Sub Total </th>
+		
+	</tr>
+	
+	<tr *ngFor="let item of items">
+		<td><button (click)="remove(item.product.id)">X</button></td>
+		<td>{{item.product.name}}</td>
+		<td><img src="{{item.product.image}}" height="100" width="130"></td>
+		<td>{{item.product.description}}</td>
+		<td>{{item.product.price}}</td>
+		<td>{{item.quantity}}</td>
+		<td>{{item.product.price * item.quantity}}</td>
+
+	</tr>
+	
+	<tr>
+		<td colspan="6" align="right">Total </td>
+		<td>{{total}}</td>
+	</tr>
+	
+</table>
+
+<p id="cartMessage">**PLEASE REMEMBER YOUR TOTAL AMOUNT AS IT WILL NOT BE SHOWED IN THE CONFIRM MENU. </p>
+
+<button class="btnCheckout" routerLink="/checkout"> Checkout </button>

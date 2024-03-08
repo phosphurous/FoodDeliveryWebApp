@@ -1,0 +1,98 @@
+
+<div id="restHeader">
+  <h1>
+    Add Restaurants
+  </h1>
+</div>
+
+<div>
+<p id="restInfo"> Restaurant Information </p>
+</div>
+
+<!--Angular4 and higher automatically adds a novalidate attribute to forms. Since mine is angular5, i am required to insert the ngNativeValidate"-->
+<form [formGroup]="myForm" ngNativeValidate (ngSubmit)="onSubmit(myForm)">
+<div class="container">
+
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <p><input type="text" formControlName="name" id="name" placeholder="Enter your restaurant name" required /></p>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <p><input type="text" formControlName="ownname" id="ownname" placeholder="Enter your name" required /></p>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+	  <p><input type="password" formControlName="password" id="password" 
+				placeholder="Enter your password" required /></p>
+    </div>
+  </div>
+  
+  <!-- <div class="row"> -->
+    <!-- <div class="col-sm-6 col-sm-offset-3"> -->
+	  <!-- <p><input type="password" formControlName="cfmpassword" id="cfmpassword"  -->
+				<!-- placeholder="Enter your password again" required /></p> -->
+    <!-- </div> -->
+  <!-- </div> -->
+  
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+	<!--By doing '[a-zA-Z0-9][a-zA-Z0-9._]' I am forcing the first character to start with a letter/number-->
+      <p><input pattern="^[a-zA-Z0-9][a-zA-Z0-9._]+@[a-zA-Z]+\.[a-z]{2,10}$" title="Eg. abc@gmail.com" type="email" formControlName="email" 
+				id="email" placeholder="Enter your email" required /></p>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <p><input pattern="[89][0-9]{7}" title="Eg. 91234567/81234567" type="text" formControlName="phone" id="phone" placeholder="Enter your phone number" required /></p>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3 form-group">
+        <input placeholder="search for location" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" id="location" class="form-control" #search [formControl]="searchControl" title="Type in your address, eg. Tampines Street 21" required />
+    </div>
+	
+	<br />
+	<br />
+	<br />
+	<!-- Implemented the agm-map directive as per the documentation for the Angular Google Maps module. -->
+	
+	<!-- I bind the latitude to a public variable in my controller named latitude, and I am doing the same thing for the longitude. I am also setting the scrollwheel option to true. If the scrollwheel is false, the scroll on the mouse will be disabled for zooming. Then I bind the zoom value to my zoom property in my controller. -->
+	<agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="true" [zoom]="zoom">
+        <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+    </agm-map>
+  </div>
+
+  <br />
+   <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <p><button class="btn btn-primary" type="submit">Register Restaurant</button> </p>    
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <p><button class="btn btn-primary" type="reset">Clear</button> </p>    
+    </div>
+  </div>
+
+ </div>
+</form>
+
+<div *ngIf="edited" class="alert alert-success box-msg" role="alert">
+        <strong>Registration for restaurant has been successful for Restaurant Name: {{thisone}}! We will contact you in 24hours!</strong>
+</div>
+
+<!-- <h2 *ngIf="edited">List of current owners</h2> -->
+
+<!-- <div *ngFor = "let owners of store"> -->
+	<!-- <p>{{owners.name}}</p> -->
+<!-- </div> -->
+
+

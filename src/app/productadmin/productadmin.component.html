@@ -1,0 +1,19 @@
+<div style="text-align:center">
+  <h1>
+    {{title}}...
+  </h1>
+ </div>
+
+<button> Edit </button>
+<div class="card" *ngFor = "let product of products">
+	<div>
+				<h3>{{product.name}}</h3>
+				<span>{{product.description}}</span>
+				<br />
+				<img id="foodImage" src={{product.image}} height="100" width="130" />
+				<br /><br />
+				<span>{{product.price | currency:'SGD'}}</span>
+				
+				<button class="btnCart" [routerLink]="['/cart', { id:product.id }]">+ Add to Cart</button>
+	</div>	  
+</div>
